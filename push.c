@@ -1,15 +1,16 @@
 #include "monty.h"
 
 /**
- *push - adding to the stack*/
+ *push - adding to the stack
+ *@stack: stacked to be filled
+ *@my_line_number: number-line
+ */
 
 void push(stack_t **stack, unsigned int my_line_number)
 {
 	char *str_value;
 	int code_value;
 	stack_t *new_node = malloc(sizeof(stack_t));
-
-	new_node = malloc(sizeof(stack_t));
 
 	if (!new_node)
 	{
@@ -26,12 +27,6 @@ void push(stack_t **stack, unsigned int my_line_number)
 	}
 	code_value = atoi(str_value);
 
-	if (!new_node)
-	{
-		fprintf(stderr, "Error: malloc failed\n");
-		exit(EXIT_FAILURE);
-	}
-
 	new_node->n = code_value;
 	new_node->prev = NULL;
 	new_node->next = *stack;
@@ -43,18 +38,22 @@ void push(stack_t **stack, unsigned int my_line_number)
 
 	*stack = new_node;
 }
-
+/**
+ *is_valid_integer- check if its a valid integer
+ *@str: string to check
+ * Return: 0 id sucessful and 1 if fail
+ */
 int is_valid_integer(const char *str)
 {
 	if (*str == '\0')
-		return 0;
+		return (0);
 
 	while (*str != '\0')
 	{
 		if (!isdigit((unsigned char)*str))
-			return 0;
+			return (0);
 		str++;
 	}
 
-	return 1;
+	return (1);
 }
