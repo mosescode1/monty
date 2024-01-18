@@ -9,6 +9,14 @@ void push(stack_t **stack, unsigned int my_line_number)
 	int code_value;
 	stack_t *new_node = malloc(sizeof(stack_t));
 
+	new_node = malloc(sizeof(stack_t));
+
+	if (!new_node)
+	{
+		fprintf(stderr, "Error: malloc failed\n");
+		exit(EXIT_FAILURE);
+	}
+
 	str_value = strtok(NULL, " \t\n");
 
 	if (!str_value || !is_valid_integer(str_value))
