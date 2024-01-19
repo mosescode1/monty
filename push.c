@@ -3,10 +3,10 @@
 /**
  *push - adding to the stack
  *@stack: stacked to be filled
- *@my_line_number: number-line
+ *@line_number: number-line
  */
 
-void push(stack_t **stack, unsigned int my_line_number)
+void push(stack_t **stack, unsigned int line_number)
 {
 	char *str_value;
 	int code_value;
@@ -22,11 +22,10 @@ void push(stack_t **stack, unsigned int my_line_number)
 
 	if (!str_value || !is_valid_integer(str_value))
 	{
-		fprintf(stderr, "L%u: usage: push integer\n", my_line_number);
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	code_value = atoi(str_value);
-
 	new_node->n = code_value;
 	new_node->prev = NULL;
 	new_node->next = *stack;
@@ -60,3 +59,13 @@ int is_valid_integer(const char *str)
 	return (1);
 }
 
+void pint(stack_t **stack, unsigned int line_number)
+{
+	if (*stack == NULL)
+	{
+		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	printf("%d\n", (*stack)->n);
+}
