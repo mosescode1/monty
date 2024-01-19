@@ -47,6 +47,8 @@ int is_valid_integer(const char *str)
 {
 	if (*str == '\0')
 		return (0);
+	if (*str == '-' || *str == '+')
+		str++;
 
 	while (*str != '\0')
 	{
@@ -57,3 +59,4 @@ int is_valid_integer(const char *str)
 
 	return (1);
 }
+

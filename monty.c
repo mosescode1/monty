@@ -10,8 +10,7 @@ int main(int argc, char *argv[])
 {
 	instruction_t commands[] = {
 		{"push", push},
-		/* {"pall", pall}*/
-	};
+		{"pall", pall}};
 
 	FILE *file_stream;
 	char *line_read = NULL;
