@@ -6,7 +6,8 @@
  */
 void add(stack_t **stack, unsigned int code_line_number)
 {
-	int temp;
+	stack_t *s1, *s2;
+	int temp, temp2;
 
 	if (*stack == NULL || (*stack)->next == NULL)
 	{
@@ -14,7 +15,11 @@ void add(stack_t **stack, unsigned int code_line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	temp = (*stack)->n;
-	(*stack)->n = (*stack)->next->n;
-	(*stack)->next->n = temp;
+	s1 = *stack;
+	s2 = (*stack)->next;
+
+	temp = s1->n;
+	temp2 = s2->n;
+	s2->n = temp + temp2;
+	pop(stack, code_line_number);
 }
