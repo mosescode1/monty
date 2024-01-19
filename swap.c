@@ -20,7 +20,7 @@ void swap(stack_t **stack, unsigned int code_line_number)
 	}
 	else
 	{
-		fprintf(stderr, "L%u: can't swap, stack too short", code_line_number);
+		fprintf(stderr, "L%u: can't swap, stack too short\n", code_line_number);
 		exit(EXIT_FAILURE);
 	}
 }
