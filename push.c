@@ -59,6 +59,12 @@ int is_valid_integer(const char *str)
 	return (1);
 }
 
+/**
+ *pint- print integer at the top
+ *@stack: pointer to the stack
+ *@line_number: line being read
+ * Return: 0 id sucessful and 1 if fail
+ */
 void pint(stack_t **stack, unsigned int line_number)
 {
 	if (*stack == NULL)
