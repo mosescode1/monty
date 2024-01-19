@@ -3,10 +3,10 @@
 /**
  *push - adding to the stack
  *@stack: stacked to be filled
- *@line_number: number-line
+ *@code_line_number: number-line
  */
 
-void push(stack_t **stack, unsigned int line_number)
+void push(stack_t **stack, unsigned int code_line_number)
 {
 	char *str_value;
 	int code_value;
@@ -22,7 +22,7 @@ void push(stack_t **stack, unsigned int line_number)
 
 	if (!str_value || !is_valid_integer(str_value))
 	{
-		fprintf(stderr, "L%u: usage: push integer\n", line_number);
+		fprintf(stderr, "L%u: usage: push integer\n", code_line_number);
 		exit(EXIT_FAILURE);
 	}
 	code_value = atoi(str_value);
@@ -62,14 +62,14 @@ int is_valid_integer(const char *str)
 /**
  *pint- print integer at the top
  *@stack: pointer to the stack
- *@line_number: line being read
+ *@code_line_number: line being read
  * Return: 0 id sucessful and 1 if fail
  */
-void pint(stack_t **stack, unsigned int line_number)
+void pint(stack_t **stack, unsigned int code_line_number)
 {
 	if (*stack == NULL)
 	{
-		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
+		fprintf(stderr, "L%u: can't pint, stack empty\n", code_line_number);
 		exit(EXIT_FAILURE);
 	}
 
