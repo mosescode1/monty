@@ -6,6 +6,7 @@
  * @argv: List of arguments
  * Return: Success otherwise failure
  */
+int main(int argc, char *argv[]);
 int main(int argc, char *argv[])
 {
 	instruction_t commands[] = {
