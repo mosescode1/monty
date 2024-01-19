@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 	};
 
 	FILE *file_stream;
-	char *line_read = NULL;
+	char *line_read;
 	char *tokenization;
 	stack_t *my_stack = NULL;
 	unsigned int code_lineNumber = 0;
@@ -44,7 +44,13 @@ int main(int argc, char *argv[])
 	while ((nread = getline(&line_read, &length, file_stream)) != -1)
 	{
 		tokenization = strtok(line_read, " \t\n");
+
+		if (line_read[0] == '#' || line_read[0] == '\n')
+		{
+			continue;
+		}
 		code_lineNumber++;
+
 		if (tokenization != NULL)
 		{
 			int op = 0;
